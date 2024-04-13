@@ -1,0 +1,5 @@
+fastapi[all]
+groq
+httpx
+openai
+python-dotenv

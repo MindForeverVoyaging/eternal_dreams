@@ -1,0 +1,154 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* header, main, footer */
+    grid-template-columns: 100%;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;    
+    text-align: center; /* Centers text for any text elements directly within the body */
+    overflow: hidden;
+}
+
+header {
+    padding: 1em 0;
+    background-color: #333; /* Dark background for the header */
+    color: white; /* Light text for contrast */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em; /* Larger font size for main title */
+}
+
+header h2 {
+    padding-top: 0.5em;
+    font-size: 1.2em; /* Smaller font size for subtitle */
+    font-weight: normal;
+    opacity: 0.9; /* Slightly see-through for less emphasis */
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Adjust the ratio between the form and the status boxes */
+    gap: 20px; /* Space between form and status boxes */
+    align-items: start; /* Align to the start of the main area */
+    padding: 20px; /* Add some padding around the main content */
+    overflow: hidden;
+}
+
+.diary_inputs,
+.diary_creation_status {
+    background: white;
+    padding: 2em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.diary_creation_status {
+    display: grid;
+    grid-template-rows: 4fr 1fr; /* 3:1 ratio */
+    gap: 20px; /* Space between status boxes */
+}
+
+.diary_inputs {
+    max-width: 400px; /* Set a max-width for the form */
+    margin: auto; 
+}
+
+h1, .output-box {
+    margin-bottom: 1em; 
+}
+
+.input-group {
+    margin-bottom: 1em; 
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5em; 
+}
+
+input[type="number"],
+input[type="text"],
+select, 
+button {
+    width: 100%; /* Take full width of parent */
+    padding: 10px;
+    margin-bottom: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transition for button hover effect */
+  }
+  
+  #get-diary-entry {
+    background-color: #4CAF50; /* Green */
+  }
+  
+  #get-diary-entry:hover {
+    background-color: #45a049; /* Darker Green */
+  }
+  
+  #replay {
+    background-color: #1E90FF; /* Blue */
+    color: white; /* Ensures text is white */
+  }
+  
+  #replay:hover {
+    background-color: #187bcd; /* Darker Blue */
+  }
+  
+  #replay:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+  }
+  
+
+.output-box {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    overflow-y: auto; /* Adds a scrollbar if content is too tall */
+    font-size: large;
+}
+
+.output-box:first-child {
+    text-align: left;
+}
+
+footer {
+    padding: 1em 0;
+    background-color: #333; /* Matching the header background */
+    color: white; /* Matching the header text color */
+    font-size: 1em;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr; /* Stack the form and status boxes on smaller screens */
+    }
+
+    .diary_inputs {
+        max-width: none; /* Allow the form to take full width on small screens */
+    }
+}

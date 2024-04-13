@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Audio Diary Entry Forma</title>
+    <link rel="stylesheet"
+          href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>LLM Grok: Time Traveling with AI.</h1>
+        <h2>Capturing Voices from the Past</h2>
+    </header>
+    <main>
+        <div class="diary_inputs">
+            <h1>Audio Diary Entry Form</h1>
+            <form id="diaryForm">
+                <div class="input-group">
+                    <label for="year">Year:</label>
+                    <input type="number"
+                           id="year"
+                           name="year"
+                           min='1901'
+                           max='2024'
+                           value='1989'
+                           required>
+                </div>
+                <div class="input-group">
+                    <label for="location">Location:</label>
+                    <input type="text"
+                           id="location"
+                           name="location"
+                           placeholder='Choose a city or a country.'
+                           required>
+                </div>
+                <div class="input-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender"
+                            name="gender"
+                            value='male'
+                            required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <!--
+                <div class="input-group">
+                    <label for="voice">Voice:</label>
+                    <select id="voice">
+                    </select>
+                </div>
+                -->
+                <div class="input-group">
+                    <label for="age">Age:</label>
+                    <input type="number"
+                           id="age"
+                           name="age"
+                           min="20"
+                           max="99"
+                           value='28'
+                           required>
+                </div>
+                <button id='get-diary-entry'
+                        type="submit">Get Diary Entry</button>
+                <button id='replay'
+                        disabled
+                        type="button">Replay</button>
+            </form>
+        </div>
+        <div class="diary_creation_status">
+            <div id="speaker-words"
+                 class="output-box">
+            </div>
+            <div id="song-titles"
+                 class="output-box"></div>
+        </div>
+    </main>
+    <footer></footer>
+    <script src='script.js'></script>
+</body>
+
+</html>

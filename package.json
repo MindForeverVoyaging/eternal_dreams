@@ -1,0 +1,23 @@
+{
+  "name": "eternal_dreams_radio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "uvicorn main:app --reload",
+    "dev": "python -m http.server 8080 -d ./static",
+    "git:tags:list": "git for-each-ref --format='%(refname:short) %(taggerdate:short) %(contents:subject)' refs/tags",
+    "test": "vitest",
+    "test:frontend:coverage": "vitest --coverage",
+    "test:frontend": "vitest",
+    "test:backend": "pytest",
+    "test:backend:coverage": "pytest --cov=./ --cov-report html tests/",
+    "summarize:frontend": "mkdir -p tmp && find ./static \\( -name '*.js' -o -name '*.html' \\) -print | while read file; do echo \"// $file\"; cat \"$file\"; echo; done ",
+    "summarize:backend": "mkdir -p tmp && find . -path ./tmp -prune -o -path ./tests -prune -o -path ./.git -prune -o -path ./.venv -prune -o -path ./node_modules -prune -o -name \"*.py\" -print  | while read file; do echo \"# $file\"; cat \"$file\"; echo; done ",
+    "summarize:backend:tests": "mkdir -p tmp && find ./tests  -name \"*.py\" -print  | while read file; do echo \"# $file\"; cat \"$file\"; echo; done ",
+    "tree": "tree -I '.git|node_modules|htmlcov|coverage|task_discussions|__pycache__' "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
