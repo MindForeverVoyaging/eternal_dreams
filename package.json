@@ -12,9 +12,9 @@
     "test:frontend": "vitest",
     "test:backend": "pytest",
     "test:backend:coverage": "pytest --cov=./ --cov-report html tests/",
-    "summarize:frontend": "mkdir -p tmp && find ./static \\( -name '*.js' -o -name '*.html' \\) -print | while read file; do echo \"// $file\"; cat \"$file\"; echo; done ",
-    "summarize:backend": "mkdir -p tmp && find . -path ./tmp -prune -o -path ./tests -prune -o -path ./.git -prune -o -path ./.venv -prune -o -path ./node_modules -prune -o -name \"*.py\" -print  | while read file; do echo \"# $file\"; cat \"$file\"; echo; done ",
-    "summarize:backend:tests": "mkdir -p tmp && find ./tests  -name \"*.py\" -print  | while read file; do echo \"# $file\"; cat \"$file\"; echo; done ",
+    "summarize:frontend": "find ./static \\( -name '*.js' -o -name '*.html' -o -name '*.css' \\) -print | while read file; do echo \"// $file\"; cat \"$file\"; echo; done ",
+    "summarize:backend": "find . -path ./tmp -prune -o -path ./tests -prune -o -path ./.git -prune -o -path ./.venv -prune -o -path ./node_modules -prune -o -name \"*.py\" -print  | while read file; do echo \"# $file\"; cat \"$file\"; echo; done ",
+    "summarize:backend:tests": "find ./tests  -name \"*.py\" -print  | while read file; do echo \"# $file\"; cat \"$file\"; echo; done ",
     "tree": "tree -I '.git|node_modules|htmlcov|coverage|task_discussions|__pycache__' "
   },
   "keywords": [],
