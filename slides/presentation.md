@@ -6,8 +6,8 @@ html: true
 
 # Time Traveling with AI</h1><h2>Capturing Past Voices</h2>
 
-[Opening shot of the presenter in a well-lit, comfortable setting]
-![bg right](./user_chats_wiyh_an_ai.webp)
+Beyond features, Creating a product.
+![bg right](./slide_images/user_chats_wiyh_an_ai.webp)
 
 <!-- NOTES:
 Hello everyone, and welcome back to our channel! In our journey so far, we've dived into the fascinating world of language models and explored a myriad of features. From capturing spoken words with precision with speech recognition, to having text spoken with speech synthesis, we've seen how we can interact with AI in ways that were once pure science fiction.
@@ -35,7 +35,7 @@ We've gone step by step through the process – how to listen and respond, and h
 
 ---
 
-<div style='width: 100%; height:100%; background: url(./OpenaiAnthropicInflection.png) no-repeat; background-size: contain; background-position: center; '></div>
+<div style='width: 100%; height:100%; background: url(./slide_images/OpenaiAnthropicInflection.png) no-repeat; background-size: contain; background-position: center; '></div>
 
 <!-- NOTES:
 But these are all just features — incredible features, yes, but still individual pieces of a larger puzzle. Today, we're shifting gears from the singular capabilities to the big picture.
@@ -47,22 +47,34 @@ So, if you're interested in looking at how this can be done, stick around, and l
 
 ---
 
-# Starting with a concept
+# Ideas and Imagination
 
-## Eternal Dreams Radio
+-   Role Playing ..
+-   An AI DJ with play lists...
+-   ...
 
-### A portal to the past
-
-![bg right](./ai_listens_to_the_past.png)
+![bg right](./slide_images/thought_process.webp)
 
 <!-- NOTES
-First of all we need imagine,
+First of all we need an idea, a vision of what we would like to create. One idea that comes to mind is an AI DJ introducing songs from our personal playlist. We could give the AI DJ a quirky personality and pull the songs from a music service, but maybe this would be a litle limited, another idea comes to mind, an AI that plays the role of someone from the past, they tell us about their day, what are their concerns and worries and what music they are listening to. We specify a time and a location and out of the mists of time, a character begins to tell us about their day.
 
-Think about, being able to time travel, not through the physical world, but through the power of voice and sound. Imagine being able to hear the intimate thoughts and events of someone's life from decades ago as if you were right there with them
+It has a good feel to it, lets go with it
+
+We'll give the idea the name 'Eternal Dreams Radio'.
+-->
+
+---
+
+# Eternal Dreams Radio
+
+## A portal to the past
+
+![bg right](./slide_images/ai_listens_to_the_past.png)
+
+<!-- NOTES
+Imagine, a sort time travel, not through the physical world, but through the power of voice and sound. Imagine being able to hear the intimate thoughts and events of someone's life from decades ago as if you were right there with them
 
 The product we aim to build will allow us to experience the world through the weekly diary entries of people from different times. To be able to immerse ourselves in their stories, feel the pulse of the events they lived through, and even share the melodies that moved them.
-
-We'll give the product a name 'Eternal Dreams Radio'.
 
 Our solution uses language models to resurrect the lost voices of history, adds layers of context with events of the times, and for that extra touch of authenticity, it adds songs from the era, completing the ambiance of the diary entries.
 -->
@@ -107,11 +119,11 @@ Our task then, is to guide the LLM to recount tales from a bygone era, complete 
 ```
 
 <!--NOTES
-So the LLM returns the diary entry and it would be quite straight forward to just pass the output to a speech synthesis enabled function but to truly step back in time, we crave the ambiance only music can provide. A spoken diary is one thing; an auditory experience with era specific melodies is quite another. So, how do we conjure up these tunes from text? The solution lies in a musical oracle, or rather music library services api.
+With this level of detail in the prompt the LLM will be able to return a diary entry and it would be quite straight forward to just pass the output to a speech synthesis enabled function and end there, but to truly step back in time, we crave the ambiance only music can provide. A spoken diary is one thing; an auditory experience with era specific melodies is quite another. So, how do we conjure up these tunes from text? The solution lies in a musical oracle, or rather music library services api.
 
-However to harness the api, we need more than just text, we need specific arguments. Extracting song titles and artist names from a block of narrative text doesn't sound fun. So we ask ourselves, 'Why not let the LLM do the heavy lifting?'
+However to harness the api, we need more than just text, we need specific arguments. Extracting song titles and artist names from a block of narrative text doesn't sound fun. So lets get the LLM to do the heavy lifting.
 
-In update our system prompt to include a request for structured output asking the AI, to give us not just prose, but JSON; with tags for each melody and its artist. And just like that, the AI delivers.
+To help guide the llm, we can update our system prompt to include a request for structured output, asking the AI, to give us not just prose, but JSON; with tags for each melody and its artist. And just like that, the AI delivers.
 
 This technique of guiding the LLM to format unstructured data into a structured one is a true game-changer. It's an nice step that brings us back to familiar teritory and allows us to interact with a music service using their API.
 
@@ -122,7 +134,7 @@ At this point we're ready to look at the overal components and workflow.
 
 # Components and Workflow
 
-![](Workflow.png)
+![](./slide_images/Workflow.png)
 
 <!-- NOTES
 For the user interaction we will use plain html, css and javascript.
@@ -137,14 +149,14 @@ FastAPI searches for the song and artists using the Spotify API
 FastAPI puts it all together and returns the Diary Entry to the WebUI
 The WebUI plays the diary, using the browsers speech synthesis api for speech, and the  audio component to play the songs.
 
-and we can quikly look at [Move to next slide]
+and we can move on to look at the solution in more detail [Move to next slide]
 -->
 
 ---
 
 # Solution Detail
 
-![](overview.png)
+![](./slide_images/overview.png)
 
 <!-- NOTES
 The solution detail
@@ -154,7 +166,7 @@ The solution detail
 
 # Server Detail
 
-![](server.png)
+![](./slide_images/server.png)
 
 <!-- NOTES
 The server detail
@@ -165,11 +177,11 @@ The server does the most heavy lifting it crafts the prompt given the arguments 
 
 # Client Detail
 
-![](client.png)
+![](./slide_images/client.png)
 
 <!-- NOTES
 and the client detail.
-All the client has to do is play the returned diary entry which can be done usingthe speech synthesis api we looked at in earlier presentations and using the audio component to play the song urls. Using the audio component is more or less the same as the speech synthesis.
+All the client has to do is play the returned diary entry which can be done using the speech synthesis api we looked at in earlier presentations and using the audio component to play the song urls. Using the audio component is more or less the same as using the speech synthesis.
 
 
 -->
@@ -201,12 +213,12 @@ def spotify_get_access_token():
 ```
 
 <!-- NOTES
-As promised, let's take a quick look at the Spotify specifices, bascically how to get the access token and how to serach for the songs.
+As promised, let's take a quick look at the Spotify specifics, bascically how to get the access token and how to serach for the songs.
 I will leave a link in the description to Spotify's developer page where you can sign up and get your api tokens.
 
 With the get access token you can see its just a matter of setting up the authorization header with the right information and making the call.
 
-Once you have the access token we're ready for the seach call.
+Once you have the access token we're ready for the seach .
 
 -->
 
@@ -240,7 +252,7 @@ def spotify_get_songs_preview_url(search_criteria, access_token):
 
 <!-- NOTES
 
-Again, once we're familia with the code, the steps are straight forward, inculding our access token we populte our search criteria and make the call and grab the first preview_url that is filled. Sometimes, a song will have no preview_url, and in that case, as there is no url, the song will not be played.
+Again, once we're familia with the code, the steps are straight forward, taking our access token we populte our search criteria and make the call and grab the first preview_url that is filled. Sometimes, a song will have no preview_url, and in that case, as there is no url, the song will not be played.
 
 Having explored the intricate workings of our system, let’s shift from theory to practice. It’s one thing to discuss the technical architecture and quite another to see it in action. Let’s dive into a live demonstration of our solution.
 -->
@@ -250,11 +262,11 @@ Having explored the intricate workings of our system, let’s shift from theory 
 # Demo
 
 <div style='height: 100%; display: grid; grid; grid-template-columns: 1fr 1fr;'>
-<div style='width: 100%; height:100%; background: url(./demo.png) no-repeat; background-size: contain; background-position: center; '></div>
-<div style='width: 100%; height:100%; background: url(./demo_playing.png) no-repeat; background-size: contain; background-position: center;'></div>
+<div style='width: 100%; height:100%; background: url(./slide_images/demo.png) no-repeat; background-size: contain; background-position: center; '></div>
+<div style='width: 100%; height:100%; background: url(./slide_images/demo_playing.png) no-repeat; background-size: contain; background-position: center;'></div>
 </div>
 
-<!--
+<!-- NOTES
 As we prepare to dive into the past, let’s set the stage for our journey. Today, we’ll be requesting a weekly audio diary from the year 1989, set in the vibrant city of Milan. Our fictional narrator for this journey is a 28-year-old man whose experiences and thoughts have been brought to life through the power of our AI-driven system.
 
 [Show the input fields being filled: ‘1989’, ‘Milan’, ‘Male’, ‘28’]
@@ -272,10 +284,20 @@ Alright, with all set, let’s make our request to the past and listen to what a
 [As the diary entry and music play, periodically highlight the 'Song Playing' notification]
 
 [After the demo]
+-->
 
-And there you have it—a seamless blend of history, personal storytelling, and music, all brought together by AI and web technologies. This demo not only showcases the technical capabilities we have learnt but also the creative possibilities it unlocks for experiencing history in a new and immersive way."
+---
 
-[Transition to closing remarks]
+# Eternal Dreams Radio
 
-"This is just the beginning of what we can achieve with AI in the realm of audio storytelling. Thank you for joining me on this temporal journey. Stay tuned for more explorations, and don't forget to like, subscribe, and share if you enjoyed this trip down memory lane."
+## A portal to the past
+
+[Code and slides in description](https://github.com/MindForeverVoyaging/eternal_dreams/tree/master)
+
+![bg right](./slide_images//ai_listens_to_the_past.png)
+
+<!-- NOTES
+And there you have it—a seamless blend of history, personal storytelling, and music, all brought together by AI . This demo not only showcases the technical capabilities we have learnt but also the creative possibilities it unlocks in a new and immersive way."
+
+Thank you for joining me on this temporal journey. Stay tuned for more explorations, and don't forget to like, subscribe, and share if you enjoyed this trip down memory lane."
 -->
